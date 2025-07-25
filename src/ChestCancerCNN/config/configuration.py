@@ -1,6 +1,6 @@
 from ChestCancerCNN.constants import *
-from ChestCancerCNN.utils.common import read_yaml, create_directories
-from ChestCancerCNN.entity.config_entity import DataIngestionConfig,PrepareBaseModelConfig,TrainingConfig
+from ChestCancerCNN.utils.common import read_yaml, create_directories, save_json
+from ChestCancerCNN.entity.config_entity import DataIngestionConfig, PrepareBaseModelConfig, TrainingConfig, EvaluationConfig
 import os
 
 
@@ -73,3 +73,14 @@ class ConfigurationManager:
         )
 
         return training_config
+    
+    def get_evaluation_config(self) -> EvaluationConfig:
+        eval_config = EvaluationConfig(
+            path_of_model="artifacts/training/model.h5",
+            training_data="artifacts/data_ingestion/Chest-CT-Scan-data",
+            mlflow_uri="https://dagshub.com/AntekBall/Cancer-Classification-end-to-end-MLflow-DVC.mlflow",
+            all_params=self.params,
+            params_image_size=self.params.IMAGE_SIZE,
+            params_batch_size=self.params.BATCH_SIZE
+        )
+        return eval_config
