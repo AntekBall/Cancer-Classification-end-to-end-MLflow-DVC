@@ -2,6 +2,7 @@
 # Cancer-Classification-end-to-end-MLflow-DVC
 
 Chest Cancer Classification using transfer learning and expertiment tracking using MLflow, pipline tracking using DVC. Deployment using Dagshub or AWS and Docker.
+Tutorial Project based on this video: https://www.youtube.com/watch?v=-NOIWzjJK-4&t=6887s&ab_channel=DSwithBappy
 ...
 
 ## Workflows
